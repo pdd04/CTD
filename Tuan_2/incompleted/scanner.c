@@ -54,6 +54,17 @@ void skipComment() {
   }
 }
 
+void skipLineComment() {
+  // Skip characters until end of line or EOF
+  while (currentChar != '\n' && currentChar != EOF) {
+    readChar();
+  }
+  // If we stopped at newline, read it to move to next line
+  if (currentChar == '\n') {
+    readChar();
+  }
+}
+
 Token* readIdentKeyword(void) {
   Token *token = makeToken(TK_IDENT, lineNo, colNo);
   int count = 0;
@@ -164,12 +175,34 @@ Token* getToken(void) {
     return token;
 
   case CHAR_TIMES:
-    token = makeToken(SB_TIMES, lineNo, colNo);
+    ln = lineNo;
+    cn = colNo;
     readChar();
-    return token;
+    // Check for ** (power operator)
+    if (charCodes[currentChar] == CHAR_TIMES) {
+      token = makeToken(SB_POWER, ln, cn);
+      readChar();
+      return token;
+    } else {
+      token = makeToken(SB_TIMES, ln, cn);
+      return token;
+    }
 
   case CHAR_SLASH:
-    token = makeToken(SB_SLASH, lineNo, colNo);
+    ln = lineNo;
+    cn = colNo;
+    readChar();
+    // Check for // (line comment)
+    if (charCodes[currentChar] == CHAR_SLASH) {
+      skipLineComment();
+      return getToken();
+    } else {
+      token = makeToken(SB_SLASH, ln, cn);
+      return token;
+    }
+
+  case CHAR_PERCENT:
+    token = makeToken(SB_MOD, lineNo, colNo);
     readChar();
     return token;
 
@@ -320,6 +353,10 @@ void printToken(Token *token) {
   case KW_DO: printf("KW_DO\n"); break;
   case KW_FOR: printf("KW_FOR\n"); break;
   case KW_TO: printf("KW_TO\n"); break;
+  case KW_STRING: printf("KW_STRING\n"); break;
+  case KW_BYTES: printf("KW_BYTES\n"); break;
+  case KW_REPEAT: printf("KW_REPEAT\n"); break;
+  case KW_UNTIL: printf("KW_UNTIL\n"); break;
 
   case SB_SEMICOLON: printf("SB_SEMICOLON\n"); break;
   case SB_COLON: printf("SB_COLON\n"); break;
@@ -340,6 +377,8 @@ void printToken(Token *token) {
   case SB_RPAR: printf("SB_RPAR\n"); break;
   case SB_LSEL: printf("SB_LSEL\n"); break;
   case SB_RSEL: printf("SB_RSEL\n"); break;
+  case SB_MOD: printf("SB_MOD\n"); break;
+  case SB_POWER: printf("SB_POWER\n"); break;
   }
 }
 
