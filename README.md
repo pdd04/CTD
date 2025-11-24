@@ -1,13 +1,5 @@
-## Yêu cầu môi trường  
-- Hệ điều hành: Windows / Linux / macOS  
-- C/C++ compiler hỗ trợ C99 hoặc mới hơn  
-- CMake: phiên bản **3.20** (khuyến nghị)
-  
-## Hướng dẫn build bằng CMake 
-- git clone https://github.com/pdd04/CTD.git
-- cd CTD
-- mkdir build
-- cd build
-- cmake ..
-- cmake --build .
-sau đó vào thư mục của tuần tương ứng để chạy file exe
+## Bộ môn Chương trình dịch 2025-1
+
+## Đường dẫn đến các bài
+### [Week 1](https://github.com/pdd04/CTD/tree/main/Tuan_1)
+### [Week 2](https://github.com/pdd04/CTD/tree/main/Tuan_2)
