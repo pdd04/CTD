@@ -1,4 +1,4 @@
-# Tuần 1 - Scanner
+# Tuần 2 - Scanner
 
 ## Nội dung
 - Bài 1 : Hoàn thành code trong mục TODO
