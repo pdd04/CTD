@@ -1,5 +1,5 @@
-/* 
- * @copyright (c) 2008, Hedspi, Hanoi University of Technology
+/*
+* @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
  */
@@ -43,6 +43,7 @@ void compileIfSt(void);
 void compileElseSt(void);
 void compileWhileSt(void);
 void compileForSt(void);
+void compileRepeatSt(void);
 void compileArguments(void);
 void compileArguments2(void);
 void compileCondition(void);
@@ -54,6 +55,9 @@ void compileTerm(void);
 void compileTerm2(void);
 void compileFactor(void);
 void compileIndexes(void);
+void compileVariable(void);
+void compileVariableList(void);
+void compileExpressionList(void);
 
 int compile(char *fileName);
 

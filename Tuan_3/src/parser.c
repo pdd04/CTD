@@ -307,10 +307,14 @@ void compileStatement(void) {
   case KW_FOR:
     compileForSt();
     break;
+  case KW_REPEAT:
+    compileRepeatSt();
+    break;
     // EmptySt needs to check FOLLOW tokens
   case SB_SEMICOLON:
   case KW_END:
   case KW_ELSE:
+  case KW_UNTIL:
     break;
     // Error occurs
   default:
@@ -319,16 +323,43 @@ void compileStatement(void) {
   }
 }
 
+void compileVariable(void) {
+  // Variable ::= Ident Indexes
+  eat(TK_IDENT);
+  compileIndexes();
+}
+
+void compileVariableList(void) {
+  // VariableList ::= SB_COMMA Variable VariableList
+  // VariableList ::= ε
+  if (lookAhead->tokenType == SB_COMMA) {
+    eat(SB_COMMA);
+    compileVariable();
+    compileVariableList();
+  }
+}
+
+void compileExpressionList(void) {
+  // ExpressionList ::= SB_COMMA Expression ExpressionList
+  // ExpressionList ::= ε
+  if (lookAhead->tokenType == SB_COMMA) {
+    eat(SB_COMMA);
+    compileExpression();
+    compileExpressionList();
+  }
+}
+
 void compileAssignSt(void) {
   assert("Parsing an assign statement ....");
-  eat(TK_IDENT);
+  // New grammar:
+  // AssignSt ::= Variable VariableList SB_ASSIGN Expression ExpressionList
 
-  if (lookAhead->tokenType == SB_LSEL) {
-    compileIndexes();
-  }
-
+  compileVariable();
+  compileVariableList();
   eat(SB_ASSIGN);
   compileExpression();
+  compileExpressionList();
+
   assert("Assign statement parsed ....");
 }
 
@@ -384,6 +415,16 @@ void compileForSt(void) {
   eat(KW_DO);
   compileStatement();
   assert("For statement parsed ....");
+}
+
+void compileRepeatSt(void) {
+  assert("Parsing a repeat statement ....");
+  // RepeatSt ::= KW_REPEAT Statement KW_UNTIL Condition
+  eat(KW_REPEAT);
+  compileStatements();
+  eat(KW_UNTIL);
+  compileCondition();
+  assert("Repeat statement parsed ....");
 }
 
 void compileArguments(void) {
@@ -513,7 +554,6 @@ void compileFactor(void) {
       if (lookAhead->tokenType == SB_LPAR) {
         compileArguments();
       } else if (lookAhead->tokenType == SB_LSEL) {
-        // Variable with indexes
         compileIndexes();
       }
       break;

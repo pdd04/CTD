@@ -1,0 +1,37 @@
+PROGRAM Example6; (* Test Multi-Variable Assignment *)
+
+VAR
+  x : INTEGER;
+  y : INTEGER;
+  z : INTEGER;
+  a : INTEGER;
+  b : INTEGER;
+
+BEGIN
+  (* Simple multi-assignment *)
+  x, y, z := 1, 2, 3;
+
+  CALL WRITEI(x);
+  CALL WRITELN;
+  CALL WRITEI(y);
+  CALL WRITELN;
+  CALL WRITEI(z);
+  CALL WRITELN;
+
+  (* Multi-assignment with expressions *)
+  a, b := x + y, y * z;
+
+  CALL WRITEI(a);
+  CALL WRITELN;
+  CALL WRITEI(b);
+  CALL WRITELN;
+
+  (* Swap using multi-assignment *)
+  x, y := y, x;
+
+  CALL WRITEI(x);
+  CALL WRITELN;
+  CALL WRITEI(y);
+  CALL WRITELN
+
+END.

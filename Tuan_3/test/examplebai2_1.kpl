@@ -1,0 +1,30 @@
+PROGRAM Example5; (* Test REPEAT UNTIL *)
+
+VAR
+  counter : INTEGER;
+  sum : INTEGER;
+
+BEGIN
+  counter := 1;
+  sum := 0;
+
+  (* Simple REPEAT UNTIL loop *)
+  REPEAT
+    sum := sum + counter;
+    counter := counter + 1
+  UNTIL counter > 10;
+
+  CALL WRITEI(sum);
+  CALL WRITELN;
+
+  (* Nested REPEAT inside BEGIN END *)
+  counter := 1;
+  REPEAT
+    BEGIN
+      CALL WRITEI(counter);
+      CALL WRITELN;
+      counter := counter + 1
+    END
+  UNTIL counter = 5
+
+END.
