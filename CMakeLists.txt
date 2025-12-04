@@ -13,11 +13,25 @@ add_executable(scanner
         Tuan_2/incompleted/error.c
         Tuan_2/incompleted/charcode.c)
 
+add_executable(parser
+        Tuan_3/src/charcode.c
+        Tuan_3/src/error.c
+        Tuan_3/src/main.c
+        Tuan_3/src/parser.c
+        Tuan_3/src/reader.c
+        Tuan_3/src/scanner.c
+        Tuan_3/src/token.c
+)
+
 set_target_properties(tuan1 PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_1"
 )
 
 set_target_properties(scanner PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_2"
+)
+
+set_target_properties(parser PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_3"
 )
 
