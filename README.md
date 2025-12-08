@@ -4,3 +4,5 @@
 ### [Week 1: Index](https://github.com/pdd04/CTD/tree/main/Tuan_1)
 ### [Week 2: Scanner](https://github.com/pdd04/CTD/tree/main/Tuan_2)
 ### [Week 3: Parser](https://github.com/pdd04/CTD/tree/main/Tuan_3)
+### [Week 4: Semantic 1](https://github.com/pdd04/CTD/tree/main/Tuan_4)
+

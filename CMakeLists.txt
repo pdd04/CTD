@@ -23,6 +23,12 @@ add_executable(parser
         Tuan_3/src/token.c
 )
 
+add_executable(symtab
+        Tuan_4/debug.c
+        Tuan_4/main.c
+        Tuan_4/symtab.c
+)
+
 set_target_properties(tuan1 PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_1"
 )
@@ -33,5 +39,9 @@ set_target_properties(scanner PROPERTIES
 
 set_target_properties(parser PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_3"
+)
+
+set_target_properties(symtab PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_4"
 )
 
