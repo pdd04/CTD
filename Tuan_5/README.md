@@ -1,8 +1,8 @@
-# Tuần 4 - Semantic 1
+# Tuần 5 - Semantic 2
 
 ## Nội dung
-- Bài 1 : Hoàn thiện các phần TODO trong source code (symtab.c)
-  - link bài gốc: [Link](https://github.com/pdd04/CTD/tree/d8a88b5089489b665b53f61ed6914fc3bdf6031c)
+- Bài 1 : Hoàn thành các phần TODO trong source code
+  - link bài gốc: [Link](https://github.com/pdd04/CTD/commit/3938bcabd398997a8395bb83e6c1f57a44d5f87c)
 
 ## Yêu cầu môi trường
 - Hệ điều hành: Windows / Linux / macOS
@@ -16,5 +16,5 @@
 - cd build
 - cmake ..
 - cmake --build .
-- cd Tuan_4
-- ./symtab.exe 
+- cd Tuan_5
+- ./semantic_2.exe test\\[ten_file_test].kpl
