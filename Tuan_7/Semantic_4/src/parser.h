@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -48,9 +48,9 @@ void compileArguments(ObjectNode* paramList);
 void compileCondition(void);
 Type* compileExpression(void);
 Type* compileExpression2(void);
-void compileExpression3(void);
+Type* compileExpression3(Type* argType);
 Type* compileTerm(void);
-void compileTerm2(void);
+Type* compileTerm2(Type* argType);
 Type* compileFactor(void);
 Type* compileIndexes(Type* arrayType);
 

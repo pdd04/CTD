@@ -7,6 +7,8 @@
 ### [Week 4: Semantic 1](https://github.com/pdd04/CTD/tree/main/Tuan_4)
 ### [Week 5: Semantic 2](https://github.com/pdd04/CTD/tree/main/Tuan_5)
 ### [Week 6: Semantic 3](https://github.com/pdd04/CTD/tree/main/Tuan_6)
+### [Week 7: Semantic 4](https://github.com/pdd04/CTD/tree/main/Tuan_7)
+
 
 
 

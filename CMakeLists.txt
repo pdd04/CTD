@@ -55,6 +55,19 @@ add_executable(semantic_3
         Tuan_6/src/semantics.c
 )
 
+add_executable(semantic_4
+        Tuan_7/Semantic_4/src/charcode.c
+        Tuan_7/Semantic_4/src/debug.c
+        Tuan_7/Semantic_4/src/error.c
+        Tuan_7/Semantic_4/src/main.c
+        Tuan_7/Semantic_4/src/parser.c
+        Tuan_7/Semantic_4/src/reader.c
+        Tuan_7/Semantic_4/src/scanner.c
+        Tuan_7/Semantic_4/src/symtab.c
+        Tuan_7/Semantic_4/src/token.c
+        Tuan_7/Semantic_4/src/semantics.c
+)
+
 set_target_properties(tuan1 PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_1"
 )
@@ -77,5 +90,9 @@ set_target_properties(semantic_2 PROPERTIES
 
 set_target_properties(semantic_3 PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_6"
+)
+
+set_target_properties(semantic_4 PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Tuan_7/Semantic_4"
 )
 
